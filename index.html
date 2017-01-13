@@ -1,5 +1,22 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 Hello Wolrd
 <script>
-console.log('ok');
+var sDt2 = [];
+	var WLID = [];
+
+	  $.ajax({
+		  url: 'http://ctc.7m.cn/datafile/fen.js',
+		  dataType: "script",
+		  error:function(jx,st,err){
+			  console.log(err);
+		  },
+		  beforeSend:function() {
+			$("#snackbar").html('<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><br>กรุณารอสักครู่ กำลังโหลดข้อมูล');
+			$("#snackbar").toggleClass('show');
+			console.log('Loading data 1...');
+		  },
+		  success: function(script,textStatus, jqXHR) {
+			console.log('Complete data 1');
+      }
+    });
 </script>
